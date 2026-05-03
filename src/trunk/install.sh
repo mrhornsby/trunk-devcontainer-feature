@@ -9,6 +9,11 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+if ! command -v curl &>/dev/null; then
+    apt-get update -y
+    apt-get install -y --no-install-recommends curl ca-certificates
+fi
+
 # Resolve "latest" to a concrete version number from the GitHub releases API
 if [ "${VERSION}" = "latest" ]; then
     VERSION=$(curl -fsSL https://api.github.com/repos/trunk-rs/trunk/releases/latest \
