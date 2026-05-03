@@ -1,0 +1,24 @@
+{
+  "id": "trunk",
+  "version": "1.0.0",
+  "name": "Trunk (Rust WASM bundler)",
+  "description": "Installs the Trunk WASM web application bundler from trunkrs.dev. Optionally adds the wasm32-unknown-unknown Rust target.",
+  "documentationURL": "https://github.com/mrhornsby/trunk-devcontainer-feature/tree/main/src/trunk",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "Trunk version to install (e.g. 0.21.14) or 'latest'.",
+      "proposals": ["latest", "0.21.14"]
+    },
+    "installWasmTarget": {
+      "type": "boolean",
+      "default": true,
+      "description": "Run `rustup target add wasm32-unknown-unknown` if rustup is available."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/rust",
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
